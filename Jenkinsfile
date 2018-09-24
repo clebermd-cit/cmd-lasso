@@ -24,7 +24,7 @@ node {
                     //sh 'cd ${GOPATH}/src/cmd/project/ && dep ensure' 
                 }
         
-                stage('Test'){
+                /*stage('Test'){
                     
                     //List all our project files with 'go list ./... | grep -v /vendor/ | grep -v github.com | grep -v golang.org'
                     //Push our project files relative to ./src
@@ -42,13 +42,14 @@ node {
                     
                     echo 'Testing'
                     sh """cd $GOPATH && go test -race -cover ${paths}"""
-                }
+                }*/
             
                 stage('Build'){
                     echo 'Building Executable'
                 
+                    sh "go build"
                     //Produced binary is $GOPATH/src/cmd/project/project
-                    sh """cd $GOPATH/src/cmd/project/ && go build -ldflags '-s'"""
+                    //sh """cd $GOPATH/src/cmd/project/ && go build -ldflags '-s'"""
                 }
                 
                 /*stage('BitBucket Publish'){
