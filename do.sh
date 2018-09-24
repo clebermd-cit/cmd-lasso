@@ -6,7 +6,7 @@ SCRIPT=$(readlink -f "$0")
 SDIR=$(dirname "$SCRIPT")
 cd $SDIR
 
-export LASSO_ROOT=${GOPATH}/src/github.com/LassoProject/lasso/
+export LASSO_ROOT=${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/
 
 IMAGE=bfoote/lasso
 GOIMAGE=golang:1.8

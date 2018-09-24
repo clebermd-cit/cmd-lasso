@@ -1,7 +1,7 @@
 package main
 
 // lasso
-// github.com/LassoProject/lasso
+// github.com/clebermd-cit/cmd-lasso
 
 import (
 	"net/http"
@@ -10,10 +10,10 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 
-	"github.com/LassoProject/lasso/handlers"
-	"github.com/LassoProject/lasso/pkg/cfg"
-	"github.com/LassoProject/lasso/pkg/timelog"
-	tran "github.com/LassoProject/lasso/pkg/transciever"
+	"github.com/clebermd-cit/cmd-lasso/handlers"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cfg"
+	"github.com/clebermd-cit/cmd-lasso/pkg/timelog"
+	tran "github.com/clebermd-cit/cmd-lasso/pkg/transciever"
 )
 
 func main() {

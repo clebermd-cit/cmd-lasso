@@ -1,9 +1,9 @@
 # bfoote/lasso
-# https://github.com/LassoProject/lasso
+# https://github.com/clebermd-cit/cmd-lasso
 FROM golang:1.8
 
-RUN mkdir -p ${GOPATH}/src/github.com/LassoProject/lasso
-WORKDIR ${GOPATH}/src/github.com/LassoProject/lasso
+RUN mkdir -p ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso
+WORKDIR ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso
     
 COPY . .
 
