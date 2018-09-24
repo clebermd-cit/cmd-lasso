@@ -15,13 +15,13 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 
-	"github.com/LassoProject/lasso/pkg/cfg"
-	lctx "github.com/LassoProject/lasso/pkg/context"
-	"github.com/LassoProject/lasso/pkg/cookie"
-	"github.com/LassoProject/lasso/pkg/domains"
-	"github.com/LassoProject/lasso/pkg/jwtmanager"
-	"github.com/LassoProject/lasso/pkg/model"
-	"github.com/LassoProject/lasso/pkg/structs"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cfg"
+	lctx "github.com/clebermd-cit/cmd-lasso/pkg/context"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cookie"
+	"github.com/clebermd-cit/cmd-lasso/pkg/domains"
+	"github.com/clebermd-cit/cmd-lasso/pkg/jwtmanager"
+	"github.com/clebermd-cit/cmd-lasso/pkg/model"
+	"github.com/clebermd-cit/cmd-lasso/pkg/structs"
 	"github.com/gorilla/sessions"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -195,7 +195,7 @@ func ValidateRequestHandler(w http.ResponseWriter, r *http.Request) {
 		if !cfg.Cfg.PublicAccess {
 			error401(w, r, AuthError{Error: "no jwt found"})
 		} else {
-			w.Header().Add("X-Lasso-User", "");
+			w.Header().Add("X-Lasso-User", "")
 		}
 		return
 	}
@@ -206,7 +206,7 @@ func ValidateRequestHandler(w http.ResponseWriter, r *http.Request) {
 		if !cfg.Cfg.PublicAccess {
 			error401(w, r, AuthError{err.Error(), jwt})
 		} else {
-			w.Header().Add("X-Lasso-User", "");
+			w.Header().Add("X-Lasso-User", "")
 		}
 		return
 	}
@@ -215,7 +215,7 @@ func ValidateRequestHandler(w http.ResponseWriter, r *http.Request) {
 		if !cfg.Cfg.PublicAccess {
 			error401(w, r, AuthError{"no email found in jwt", jwt})
 		} else {
-			w.Header().Add("X-Lasso-User", "");
+			w.Header().Add("X-Lasso-User", "")
 		}
 		return
 	}
@@ -226,7 +226,7 @@ func ValidateRequestHandler(w http.ResponseWriter, r *http.Request) {
 			if !cfg.Cfg.PublicAccess {
 				error401(w, r, AuthError{"not authorized for " + r.Host, jwt})
 			} else {
-				w.Header().Add("X-Lasso-User", "");
+				w.Header().Add("X-Lasso-User", "")
 			}
 			return
 		}
@@ -278,7 +278,7 @@ func LogoutHandler(w http.ResponseWriter, r *http.Request) {
 
 	var redirectURL = r.URL.Query().Get("url")
 	if redirectURL != "" {
-		http.Redirect(w, r, redirectURL, 302);
+		http.Redirect(w, r, redirectURL, 302)
 	} else {
 		renderIndex(w, "you have been logged out")
 	}

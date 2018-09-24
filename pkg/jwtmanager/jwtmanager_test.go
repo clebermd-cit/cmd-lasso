@@ -3,8 +3,9 @@ package jwtmanager
 import (
 	"testing"
 
-	"github.com/LassoProject/lasso/pkg/cfg"
-	"github.com/LassoProject/lasso/pkg/structs"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cfg"
+	"github.com/clebermd-cit/cmd-lasso/pkg/structs"
+
 	// log "github.com/Sirupsen/logrus"
 	log "github.com/Sirupsen/logrus"
 	"github.com/stretchr/testify/assert"

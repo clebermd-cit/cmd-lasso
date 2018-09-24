@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/LassoProject/lasso/pkg/model"
-	"github.com/LassoProject/lasso/pkg/structs"
+	"github.com/clebermd-cit/cmd-lasso/pkg/model"
+	"github.com/clebermd-cit/cmd-lasso/pkg/structs"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/mitchellh/mapstructure"

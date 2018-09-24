@@ -3,8 +3,8 @@ package domains
 import (
 	"strings"
 
-	"github.com/LassoProject/lasso/pkg/cfg"
 	log "github.com/Sirupsen/logrus"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cfg"
 )
 
 // TODO sort domains by length from longest to shortest

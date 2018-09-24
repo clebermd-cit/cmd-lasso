@@ -4,10 +4,10 @@ import (
 	"errors"
 	"net/http"
 
-	// "github.com/LassoProject/lasso/pkg/structs"
-	"github.com/LassoProject/lasso/pkg/cfg"
-	"github.com/LassoProject/lasso/pkg/domains"
+	// "github.com/clebermd-cit/cmd-lasso/pkg/structs"
 	log "github.com/Sirupsen/logrus"
+	"github.com/clebermd-cit/cmd-lasso/pkg/cfg"
+	"github.com/clebermd-cit/cmd-lasso/pkg/domains"
 )
 
 var defaultMaxAge = cfg.Cfg.JWT.MaxAge * 60
@@ -25,7 +25,7 @@ func setCookie(w http.ResponseWriter, r *http.Request, val string, maxAge int) {
 	domain := domains.Matches(r.Host)
 	// Allow overriding the cookie domain in the config file
 	if cfg.Cfg.Cookie.Domain != "" {
-	  domain = cfg.Cfg.Cookie.Domain
+		domain = cfg.Cfg.Cookie.Domain
 		log.Debugf("setting the cookie domain to %v", domain)
 	}
 	// log.Debugf("cookie %s expires %d", cfg.Cfg.Cookie.Name, expires)
