@@ -1,7 +1,7 @@
 node {
     try{
-        notifyBuild('STARTED')
-        bitbucketStatusNotify(buildState: 'INPROGRESS')
+        
+        //bitbucketStatusNotify(buildState: 'INPROGRESS')
         
         ws("${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}/") {
             withEnv(["GOPATH=${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"]) {
@@ -81,14 +81,14 @@ node {
         // If there was an exception thrown, the build failed
         currentBuild.result = "FAILED"
         
-        bitbucketStatusNotify(buildState: 'FAILED')
+        //bitbucketStatusNotify(buildState: 'FAILED')
     } finally {
         // Success or failure, always send notifications
-        notifyBuild(currentBuild.result)
+        //notifyBuild(currentBuild.result)
         
         def bs = currentBuild.result ?: 'SUCCESSFUL'
-        if(bs == 'SUCCESSFUL'){
+        /*if(bs == 'SUCCESSFUL'){
             bitbucketStatusNotify(buildState: 'SUCCESSFUL')
-        }
+        }*/
     }
 }
