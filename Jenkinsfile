@@ -14,19 +14,19 @@ node {
                     echo 'Pulling Dependencies'
             
                     sh 'go version'
-                    sh 'go get -u github.com/golang/dep/cmd/dep'
+                  /*  sh 'go get -u github.com/golang/dep/cmd/dep'
                     sh 'go get -u github.com/golang/lint/golint'
                     sh 'go get github.com/tebeka/go2xunit'
                     
                     //or -update
-                    sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && dep ensure' 
+                    sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && dep ensure' */
                 }
         
-                /*stage('Test'){
+                stage('Test'){
                     
                     //List all our project files with 'go list ./... | grep -v /vendor/ | grep -v github.com | grep -v golang.org'
                     //Push our project files relative to ./src
-                    sh 'cd $GOPATH && go list ./... | grep -v /vendor/ | grep -v github.com | grep -v golang.org > projectPaths'
+                 /*   sh 'cd $GOPATH && go list ./... | grep -v /vendor/ | grep -v github.com | grep -v golang.org > projectPaths'
                     
                     //Print them with 'awk '$0="./src/"$0' projectPaths' in order to get full relative path to $GOPATH
                     def paths = sh returnStdout: true, script: """awk '\$0="./src/"\$0' projectPaths"""
@@ -39,13 +39,15 @@ node {
                     sh """cd $GOPATH && golint ${paths}"""
                     
                     echo 'Testing'
-                    sh """cd $GOPATH && go test -race -cover ${paths}"""
-                }*/
+                    sh """cd $GOPATH && go test -race -cover ${paths}"""*/
+
+                    sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && go test'
+                }
             
                 stage('Build'){
                     echo 'Building Executable'
-                
-                    sh "go build"
+                    sh "cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && go build"
+                    
                     //Produced binary is $GOPATH/src/cmd/project/project
                     //sh """cd $GOPATH/src/cmd/project/ && go build -ldflags '-s'"""
                 }
