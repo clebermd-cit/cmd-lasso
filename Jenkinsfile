@@ -14,6 +14,10 @@ node {
                     echo 'Pulling Dependencies'
             
                     sh 'go version'
+                     sh 'cd ${GOPATH} && ls'
+                     sh 'cd src && ls'
+
+
                   /*  sh 'go get -u github.com/golang/dep/cmd/dep'
                     sh 'go get -u github.com/golang/lint/golint'
                     sh 'go get github.com/tebeka/go2xunit'
@@ -22,7 +26,7 @@ node {
                     sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && dep ensure' */
                 }
         
-                stage('Test'){
+                //stage('Test'){
                     
                     //List all our project files with 'go list ./... | grep -v /vendor/ | grep -v github.com | grep -v golang.org'
                     //Push our project files relative to ./src
@@ -41,16 +45,16 @@ node {
                     echo 'Testing'
                     sh """cd $GOPATH && go test -race -cover ${paths}"""*/
 
-                    sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && go test'
-                }
+                  //  sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && go test'
+               // }
             
-                stage('Build'){
+                /*stage('Build'){
                     echo 'Building Executable'
                     sh "cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && go build"
                     
                     //Produced binary is $GOPATH/src/cmd/project/project
                     //sh """cd $GOPATH/src/cmd/project/ && go build -ldflags '-s'"""
-                }
+                }*/
                 
                 /*stage('BitBucket Publish'){
                 
