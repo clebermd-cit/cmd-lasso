@@ -1,8 +1,6 @@
 node {
     try{
         
-        //bitbucketStatusNotify(buildState: 'INPROGRESS')
-        
         ws("${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}/") {
             withEnv(["GOPATH=${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}"]) {
                 env.PATH="${GOPATH}/bin:$PATH"
@@ -16,12 +14,12 @@ node {
                     echo 'Pulling Dependencies'
             
                     sh 'go version'
-                    /*sh 'go get -u github.com/golang/dep/cmd/dep'
+                    sh 'go get -u github.com/golang/dep/cmd/dep'
                     sh 'go get -u github.com/golang/lint/golint'
-                    sh 'go get github.com/tebeka/go2xunit'*/
+                    sh 'go get github.com/tebeka/go2xunit'
                     
                     //or -update
-                    //sh 'cd ${GOPATH}/src/cmd/project/ && dep ensure' 
+                    sh 'cd ${GOPATH}/src/github.com/clebermd-cit/cmd-lasso/ && dep ensure' 
                 }
         
                 /*stage('Test'){
